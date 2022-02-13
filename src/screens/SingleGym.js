@@ -38,6 +38,13 @@ function SingleGym(props){
             <Text style={styles.texter}>פנוי {item["פנוי לפעילות"]}</Text>
             <Text style={styles.texter}>ציון <Text>{(item['rank']*100).toFixed(2)}/10</Text></Text>
           </View>
+          <Text style={styles.textOne}>משתמשים מספרים.. </Text>
+            <View style={styles.Dcontainer}>
+              <Text style={styles.texter}>מגיעים בימים-</Text>
+              <Text style={styles.texter}>דרושים עוד X משתתפים</Text>
+              <Butt fn={()=>Linking.openURL(`tel:${item["טלפון איש קשר"]}`)} style={[styles.Acontainer,styles.textTwo]} str={"צור קשר עם משתתף/קבוצה זו"}/>
+              <Butt fn={()=>Linking.openURL(`tel:${item["טלפון איש קשר"]}`)} style={[styles.Acontainer,styles.textTwo]} str={"הוסף פוסט חיפוש/שאלה נוסף"}/>
+            </View>
           <Text style={styles.textOne}>אודות </Text>
             <View style={styles.Dcontainer}>
               <Text style={styles.texter}>מפעיל {item['גוף מפעיל המתקן']}</Text>
@@ -46,6 +53,7 @@ function SingleGym(props){
               <Text style={styles.texter}> {item["מתקן תקני לתחרויות"]||'לא'}</Text>
               <Text style={styles.texter}>שנת הקמה : {item["שנת הקמה"]||"אין"}</Text>
             </View>
+            
         </View>
       </ScrollView>
   )}

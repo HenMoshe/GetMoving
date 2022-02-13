@@ -17,19 +17,17 @@ async function getData(){
       console.error(e)
     }
   }
-  
-                        
 function GymProvider({children}){
     const [markerInfo, setMarkerInfo] = useState([]) 
     const [state, dispatch] = useReducer(Reducer,gymsdata)
     function handleFetch(city="פסגת"){
-        axios.get(`https://data.gov.il/api/3/action/datastore_search?resource_id=2304b5de-c720-4b5c-bbc7-4cbab85e0ae8&plain=false&limit=3&q=${city}&distinct=true`)
+        axios.get(`https://data.gov.il/api/3/action/datastore_search?resource_id=2304b5de-c720-4b5c-bbc7-4cbab85e0ae8&limit=6&q=${city}&distinct=true`)
             .then((res)=>{
                 dispatch({type: 'load', res: [res.data.result.records, [res.data.result._links, res.data.result.total]]})
                 handleMarkers(res.data.result.records) 
         }).catch((error)=>console.error(error))}
     async function handleMarker(addressItem){
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressItem}&key=AIzaSyBBcRi9qdzuz9fekm29fszoL0qbdjj0LNI`
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressItem}&key=secrets.APIKEY`
       const markerItem = await axios.get(url)
       return {'latitude' :await markerItem.data.results[0].geometry.location.lat,'longitude':await markerItem.data.results[0].geometry.location.lng}} 
                            
