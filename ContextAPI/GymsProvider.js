@@ -3,6 +3,7 @@ import { GymContext } from './CreateGymContext'
 import { useEffect, useReducer } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Reducer from './Reducer';
+import {API_KEY} from '@env'
 import axios from 'axios'
 const gymsdata = { loading: true, gymlist: [], data: [], favs: [] }
 async function getData(){
@@ -27,7 +28,7 @@ function GymProvider({children}){
                 handleMarkers(res.data.result.records) 
         }).catch((error)=>console.error(error))}
     async function handleMarker(addressItem){
-      let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressItem}&key=secrets.APIKEY`
+      let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressItem}&key=${API_KEY}`
       const markerItem = await axios.get(url)
       return {'latitude' :await markerItem.data.results[0].geometry.location.lat,'longitude':await markerItem.data.results[0].geometry.location.lng}} 
                            

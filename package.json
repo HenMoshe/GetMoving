@@ -26,6 +26,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-43.tar.gz",
+    "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-maps": "0.28.1",
     "react-native-reanimated": "~2.2.0",
