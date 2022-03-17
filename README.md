@@ -5,8 +5,8 @@
 ##### -Favourite you're beloved fields.
 ##### -Next up- leave posts & ratings for each field, use a calender to let users know when you're going, much better design.
 ## Technologies-
-##### -React native
-##### -State Managment using context with reducer --> a bit messy looking in this version.
+##### -React Native
+##### -State Managment using context with reducer.
 ##### -React-native-maps for the maps.
 ##### -Axios.
 ##### -Server on the making --> Express.js with MongoDB as DB. 
